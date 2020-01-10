@@ -1,9 +1,8 @@
 class ChatroomController < ApplicationController
+  before_action :require_user
+  
   def index
-    unless session[:user_id]
-      flash[:error] = "Only authenticated users are allowed to see this."
-      redirect_to login_path
-    end
+    @message = Message.new
     @messages = Message.all
   end
 end
