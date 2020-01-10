@@ -1,22 +1,9 @@
 class ChatroomController < ApplicationController
   def index
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def show
-  end
-
-  def destroy
+    unless session[:user_id]
+      flash[:error] = "Only authenticated users are allowed to see this."
+      redirect_to login_path
+    end
+    @messages = Message.all
   end
 end

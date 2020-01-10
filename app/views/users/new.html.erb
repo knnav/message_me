@@ -1,0 +1,13 @@
+<h1 align="center">Sign in!</h1>
+
+<%= form_for(@user, :html => { class:  "ui form", role: "form" }) do |f| %>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username, placeholder: "Your username"%>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <%= f.submit class: "ui button"%>
+<% end %>
