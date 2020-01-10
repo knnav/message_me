@@ -4,4 +4,6 @@ class Message < ApplicationRecord
             length: { minimum: 1, maximum: 500 }
         
   belongs_to :user
+
+  scope :custom_display, -> { order(:created_at).last(20) }
 end
